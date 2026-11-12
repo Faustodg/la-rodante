@@ -1,0 +1,8 @@
+# Mismos fines de línea en cualquier computadora (evita cambios falsos en Windows)
+* text=auto eol=lf
+
+# Archivos binarios: no se tocan
+*.jpg  binary
+*.jpeg binary
+*.png  binary
+*.mp4  binary

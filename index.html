@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+  <!-- SEO -->
+  <title>La Rodante Food Truck – Hamburguesas, Sándwiches y Panificados en Vedia | Pedí Ahora</title>
+  <meta name="description" content="La Rodante Food Truck, en Vedia: hamburguesas caseras, sándwiches, panificados artesanales y promos. Retirás o te lo llevamos. Hacé tu pedido por WhatsApp.">
+  <meta name="robots" content="index,follow">
+
+  <!-- Open Graph básico -->
+  <meta property="og:title" content="La Rodante Food Truck – La manera más simple de disfrutar tu comida">
+  <meta property="og:description" content="Pedí tu comida en segundos. Panificados, hamburguesas, sándwiches y promos.">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="La Rodante Food Truck">
+  <meta property="og:locale" content="es_AR">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- AL PUBLICAR: reemplazar TU-DOMINIO por la dirección real del sitio y quitar este comentario.
+       Sin la dirección completa, WhatsApp y Facebook no muestran la imagen al compartir el enlace.
+  <link rel="canonical" href="https://TU-DOMINIO/">
+  <meta property="og:url" content="https://TU-DOMINIO/">
+  <meta property="og:image" content="https://TU-DOMINIO/IMG/og.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Logo de La Rodante">
+  -->
+
+  <!-- Datos del negocio para buscadores (Google). Si cambia la dirección o los días, actualizar acá también. -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FastFoodRestaurant",
+    "name": "La Rodante Food Truck",
+    "description": "Food truck en Vedia: hamburguesas caseras, sándwiches, panificados artesanales y promos. Pedidos por WhatsApp, con retiro o envío a domicilio.",
+    "servesCuisine": ["Hamburguesas", "Sándwiches", "Panificados"],
+    "telephone": "+5492364418887",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Av. 25 de Mayo 151",
+      "addressLocality": "Vedia",
+      "addressRegion": "Buenos Aires",
+      "addressCountry": "AR"
+    },
+    "openingHours": ["Tu-Su 08:00-12:00", "Tu-Su 19:00-00:00"],
+    "paymentAccepted": "Efectivo, Cuenta DNI, Banco Nación, Mercado Pago",
+    "sameAs": ["https://www.instagram.com/larodantefoodtruck"]
+  }
+  </script>
+
+  <!-- Íconos -->
+  <link rel="icon" href="IMG/favicon.png" type="image/png">
+  <link rel="apple-touch-icon" href="IMG/apple-touch-icon.png">
+  <meta name="theme-color" content="#fbf5ea">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+
+  <!-- Fuentes: Bebas Neue para títulos, Poppins para el texto -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@400;500;600;700;800&display=swap">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- SKIP NAV (accesibilidad) -->
+  <a href="#contenidoPrincipal" class="skip-link">Saltar al contenido principal</a>
+
+  <!-- ═══════════════════ HEADER FIJO ═══════════════════ -->
+  <header id="mainHeader" role="banner">
+    <div class="left">
+      <a href="#" aria-label="La Rodante Food Truck — inicio">
+        <img src="IMG/logo-128.png" alt="La Rodante Food Truck" class="logo" width="56" height="56">
+      </a>
+      <div class="brand">
+        <!-- El único <h1> de la página es el del hero -->
+        <p class="brand-name">La Rodante Food Truck</p>
+        <p class="tagline">La manera más simple de disfrutar tu comida</p>
+      </div>
+    </div>
+
+    <div class="right">
+      <!-- "Abierto ahora / Cerrado ahora": lo completa JS con los horarios de data/menu.js -->
+      <span class="estado-local" data-estado hidden></span>
+      <div class="search-wrap">
+        <input
+          id="searchInput"
+          type="text"
+          placeholder="Buscar producto..."
+          aria-label="Buscar producto"
+          autocomplete="off"
+          spellcheck="false"
+        />
+      </div>
+      <button
+        class="boton-carrito"
+        id="cartBtn"
+        data-accion="abrir-carrito"
+        aria-label="Abrir carrito"
+        aria-expanded="false"
+        aria-controls="modalCarrito"
+      >
+        Carrito
+        <span id="contadorCarrito" aria-live="polite" aria-atomic="true">0</span>
+      </button>
+    </div>
+  </header>
+
+  <div class="header-spacer" aria-hidden="true"></div>
+
+  <!-- ═══════════════════ HERO SECTION ═══════════════════ -->
+  <section class="hero" aria-label="Bienvenida">
+    <img class="hero-foto" src="IMG/eventos/evento-3.jpg" alt="" width="720" height="900" fetchpriority="high">
+    <div class="hero-contenido">
+      <h1><span class="sr-only">La Rodante Food Truck: </span>Comé <em>rico.</em></h1>
+      <p>Hamburguesas, lomitos y panificados recién hechos en Vedia. Pedís por WhatsApp y retirás o te lo llevamos.</p>
+      <div class="hero-acciones">
+        <a class="boton" href="#menu">Ver el menú</a>
+        <a class="btn-linea" data-wa href="https://wa.me/5492364418887" target="_blank" rel="noopener">Escribinos por WhatsApp</a>
+      </div>
+      <ul class="hero-datos">
+        <li class="estado-local" data-estado hidden></li>
+        <li>Av. 25 de Mayo 151</li>
+        <li>Martes a domingo · 8 a 12 y 19 a 00</li>
+        <li>Envío en Vedia <span data-envio-costo>$500</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Cinta en movimiento (decorativa) -->
+  <div class="cinta" aria-hidden="true">
+    <div>
+      <b>Hamburguesas</b>★<b>Lomitos</b>★<b>Sándwiches</b>★<b>Panificados</b>★<b>Combos</b>★<b>Comé rico</b>★
+      <b>Hamburguesas</b>★<b>Lomitos</b>★<b>Sándwiches</b>★<b>Panificados</b>★<b>Combos</b>★<b>Comé rico</b>★
+    </div>
+  </div>
+
+  <!-- Ancla del inicio del menú: JS hace scroll hasta acá (las pestañas son sticky) -->
+  <div id="menu" aria-hidden="true"></div>
+
+  <!-- ═══════════════════ TABS ═══════════════════ -->
+  <nav class="tabs" role="tablist" aria-label="Categorías de productos">
+    <button class="tab active" role="tab" data-target="panificados" aria-selected="true" data-accion="tab">Panificados</button>
+    <button class="tab" role="tab" data-target="hamburguesas" aria-selected="false" data-accion="tab">Hamburguesas</button>
+    <button class="tab" role="tab" data-target="sandwiches" aria-selected="false" data-accion="tab">Sándwiches</button>
+    <button class="tab" role="tab" data-target="promos" aria-selected="false" data-accion="tab">Promos</button>
+  </nav>
+
+  <!-- FILTRO PRECIO -->
+  <section class="filtro-precio" aria-label="Filtrar productos por precio">
+    <label for="rangoPrecio">Precio máximo:</label>
+    <span id="precioMaxLabel" aria-live="polite">sin límite</span>
+    <input
+      id="rangoPrecio"
+      type="range"
+      min="1000"
+      max="50000"
+      step="500"
+      value="50000"
+      aria-label="Precio máximo"
+    />
+  </section>
+
+  <!-- ═══════════════════ CONTENIDO PRINCIPAL ═══════════════════ -->
+  <main id="contenidoPrincipal">
+
+    <!-- Aviso cuando la búsqueda o el filtro no dejan productos a la vista (lo completa JS) -->
+    <p id="sinResultados" class="sin-resultados" role="status" hidden></p>
+
+    <noscript>
+      <p class="sin-resultados">Para ver el menú y armar tu pedido necesitás tener JavaScript activado en el navegador.</p>
+    </noscript>
+
+    <!-- Las tarjetas de productos y promos NO se escriben acá: se generan desde data/menu.js.
+         Para sumar una categoría nueva: agregá su pestaña arriba, una sección como estas
+         con <div class="grid" id="grid-NOMBRE">, y usá ese NOMBRE como "categoria" en los datos. -->
+
+    <!-- ── PANIFICADOS ── -->
+    <section id="panificados" class="categoria" aria-labelledby="h2-panificados">
+      <div class="section-header">
+        <h2 id="h2-panificados">Panificados</h2>
+      </div>
+      <div class="grid" id="grid-panificados"></div>
+    </section>
+
+    <!-- ── HAMBURGUESAS ── -->
+    <section id="hamburguesas" class="categoria" aria-labelledby="h2-hamburguesas">
+      <div class="section-header">
+        <h2 id="h2-hamburguesas">Hamburguesas</h2>
+      </div>
+      <div class="grid" id="grid-hamburguesas"></div>
+    </section>
+
+    <!-- ── SÁNDWICHES ── -->
+    <section id="sandwiches" class="categoria" aria-labelledby="h2-sandwiches">
+      <div class="section-header">
+        <h2 id="h2-sandwiches">Sándwiches</h2>
+      </div>
+      <div class="grid" id="grid-sandwiches"></div>
+    </section>
+
+    <!-- ── PROMOS ── -->
+    <section id="promos" class="categoria" aria-labelledby="h2-promos">
+      <div class="section-header">
+        <h2 id="h2-promos">Promos y Combos</h2>
+      </div>
+      <div class="grid-promos" id="grid-promos"></div>
+    </section>
+
+    <!-- ── DÓNDE ENCONTRARNOS ── -->
+    <section class="categoria" id="donde" aria-labelledby="h2-donde">
+      <div class="section-header section-header--centrado">
+        <h2 id="h2-donde">Dónde encontrarnos</h2>
+      </div>
+      <div class="info-cards">
+
+        <div class="info-card">
+          <span class="info-title">Dirección</span>
+          <p class="info-text">Av. 25 de Mayo 151<br>Vedia, Buenos Aires</p>
+          <a class="info-link" href="https://www.google.com/maps/search/?api=1&amp;query=Av.+25+de+Mayo+151%2C+Vedia%2C+Buenos+Aires" target="_blank" rel="noopener">Ver en el mapa</a>
+        </div>
+
+        <div class="info-card">
+          <span class="info-title">Días y horarios</span>
+          <p class="info-text">Martes a domingo<br>8 a 12 h y 19 a 00 h</p>
+        </div>
+
+        <div class="info-card">
+          <span class="info-title">Entrega</span>
+          <p class="info-text">Retirás en el food truck o te lo llevamos.<br>Envío dentro de Vedia: <strong data-envio-costo>$500</strong></p>
+        </div>
+
+        <div class="info-card">
+          <span class="info-title">Medios de pago</span>
+          <ul class="info-lista">
+            <li>Efectivo</li>
+            <li>Cuenta DNI</li>
+            <li>Banco Nación</li>
+            <li>Mercado Pago</li>
+          </ul>
+        </div>
+
+      </div>
+      <div class="info-acciones">
+        <!-- El número de WhatsApp sale de data/menu.js (JS actualiza los enlaces con data-wa) -->
+        <a class="boton enlace-boton" data-wa href="https://wa.me/5492364418887" target="_blank" rel="noopener">Escribinos por WhatsApp</a>
+        <a class="btn-secondary enlace-boton" href="https://www.instagram.com/larodantefoodtruck" target="_blank" rel="noopener">Seguinos en Instagram</a>
+      </div>
+    </section>
+
+    <!-- ── CÓMO FUNCIONA ── -->
+    <section class="categoria" aria-labelledby="h2-como-funciona">
+      <div class="section-header section-header--centrado">
+        <h2 id="h2-como-funciona">Cómo funciona</h2>
+      </div>
+      <div class="step-cards">
+
+        <div class="step-card">
+          <span class="step-num" aria-hidden="true">1</span>
+          <span class="step-title">Elegí</span>
+          <p class="step-text">Navegá por las categorías, usá el buscador o filtrá por precio para encontrar lo que querés comer.</p>
+        </div>
+
+        <div class="step-card">
+          <span class="step-num" aria-hidden="true">2</span>
+          <span class="step-title">Armá tu pedido</span>
+          <p class="step-text">Agregá productos al carrito con las observaciones que necesites. Las promos y combos están esperando.</p>
+        </div>
+
+        <div class="step-card">
+          <span class="step-num" aria-hidden="true">3</span>
+          <span class="step-title">Confirmá por WhatsApp</span>
+          <p class="step-text">Tu pedido se envía automáticamente por WhatsApp. En minutos lo tenés en la puerta, recién hecho.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── POR QUÉ ELEGIRNOS ── -->
+    <section class="categoria" aria-labelledby="h2-por-que">
+      <div class="section-header section-header--centrado">
+        <h2 id="h2-por-que">¿Por qué elegirnos?</h2>
+      </div>
+      <div class="reason-cards">
+
+        <div class="reason-card">
+          <span class="reason-title">Rápido</span>
+          <p class="reason-text">Pedí en segundos, sin vueltas. Interfaz directa y sin demoras.</p>
+        </div>
+
+        <div class="reason-card">
+          <span class="reason-title">Hecho en el momento</span>
+          <p class="reason-text">Cada producto se prepara recién cuando lo pedís. Cero congelados.</p>
+        </div>
+
+        <div class="reason-card">
+          <span class="reason-title">Casero</span>
+          <p class="reason-text">Recetas tradicionales con ingredientes seleccionados y mucho amor.</p>
+        </div>
+
+        <div class="reason-card">
+          <span class="reason-title">Delivery propio</span>
+          <p class="reason-text">Llegamos rápido y caliente porque conocemos cada rincón de la ciudad.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ═══════════════════ NOSOTROS / EQUIPO ═══════════════════ -->
+    <section class="team-section" aria-labelledby="h2-equipo">
+      <div class="team-header">
+        <h2 id="h2-equipo">Quiénes somos</h2>
+        <p>Un equipo apasionado por la comida rica y el delivery sin vueltas. Conocé a las personas que hacen que cada pedido llegue perfecto.</p>
+      </div>
+
+      <!-- Fotos reales del equipo (IMG/equipo/, cuadradas de 640 px).
+           Para sumar una foto, copiá una línea <figure> y cambiá el archivo y el texto alternativo. -->
+      <div class="team-galeria">
+        <figure class="team-foto"><img src="IMG/equipo/equipo-1.jpg" alt="Cocinando en la plancha del food truck" loading="lazy" decoding="async" width="640" height="640"></figure>
+        <figure class="team-foto"><img src="IMG/equipo/equipo-2.jpg" alt="Dos integrantes del equipo preparando hamburguesas" loading="lazy" decoding="async" width="640" height="640"></figure>
+        <figure class="team-foto"><img src="IMG/equipo/equipo-3.jpg" alt="El equipo trabajando en la cocina" loading="lazy" decoding="async" width="640" height="640"></figure>
+        <figure class="team-foto"><img src="IMG/equipo/equipo-4.jpg" alt="La cocina de La Rodante en plena producción" loading="lazy" decoding="async" width="640" height="640"></figure>
+        <figure class="team-foto"><img src="IMG/equipo/equipo-5.jpg" alt="Tomando pedidos en la caja" loading="lazy" decoding="async" width="640" height="640"></figure>
+        <figure class="team-foto"><img src="IMG/equipo/equipo-6.jpg" alt="Junto al ahumador en un evento" loading="lazy" decoding="async" width="640" height="640"></figure>
+        <figure class="team-foto"><img src="IMG/equipo/equipo-7.jpg" alt="Integrante del equipo en moto" loading="lazy" decoding="async" width="640" height="640"></figure>
+        <figure class="team-foto"><img src="IMG/equipo/equipo-8.jpg" alt="El stand de La Rodante con el cartel de ahumados" loading="lazy" decoding="async" width="640" height="640"></figure>
+      </div>
+    </section>
+
+    <!-- ═══════════════════ EVENTOS ═══════════════════ -->
+    <section class="events-section" aria-labelledby="h2-eventos">
+      <div class="events-header">
+        <h2 id="h2-eventos">Eventos &amp; Momentos</h2>
+        <p>Mirá lo que vivimos y lo que se viene. Cada evento es una nueva oportunidad para disfrutar.</p>
+      </div>
+
+      <!-- Los videos no se descargan hasta que la persona toca reproducir (preload="none"):
+           pesan unos 8 MB cada uno. -->
+      <div class="events-grid" id="eventsGrid">
+
+        <article class="event-card">
+          <div class="event-media event-media--vertical">
+            <video src="IMG/eventos/evento-1.mp4" poster="IMG/eventos/evento-1.jpg" controls playsinline preload="none"
+                   aria-label="Video de La Rodante en un evento al aire libre"></video>
+          </div>
+          <div class="event-info">
+            <span class="event-tag">Video</span>
+            <h3 class="event-title">La Rodante en el parque</h3>
+            <p class="event-desc">El gazebo y el food truck instalados entre los pinos.</p>
+          </div>
+        </article>
+
+        <article class="event-card">
+          <div class="event-media event-media--vertical">
+            <video src="IMG/eventos/evento-2.mp4" poster="IMG/eventos/evento-2.jpg" controls playsinline preload="none"
+                   aria-label="Video del stand de La Rodante en un evento"></video>
+          </div>
+          <div class="event-info">
+            <span class="event-tag">Video</span>
+            <h3 class="event-title">Un día de evento</h3>
+            <p class="event-desc">El stand, la bandera y las mesas: así se arma La Rodante cuando sale a un evento.</p>
+          </div>
+        </article>
+
+        <article class="event-card">
+          <div class="event-media event-media--vertical">
+            <img src="IMG/eventos/evento-3.jpg" alt="Bandeja con cuatro hamburguesas y papas fritas frente al food truck"
+                 loading="lazy" decoding="async" width="720" height="900">
+          </div>
+          <div class="event-info">
+            <span class="event-tag">Foto</span>
+            <h3 class="event-title">Recién salidas</h3>
+            <p class="event-desc">Hamburguesas con papas, servidas al pie del food truck.</p>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ═══════════════════ FOOTER ═══════════════════ -->
+  <footer role="contentinfo">
+    <p>La Rodante Food Truck</p>
+    <p>Tu comida favorita, recién hecha y a tu puerta.</p>
+    <p>Av. 25 de Mayo 151, Vedia · Martes a domingo, de 8 a 12 h y de 19 a 00 h</p>
+    <p class="footer-links">
+      <a data-wa href="https://wa.me/5492364418887" target="_blank" rel="noopener">WhatsApp</a>
+      <a href="https://www.instagram.com/larodantefoodtruck" target="_blank" rel="noopener">Instagram</a>
+      <a href="#menu">Ver el menú</a>
+    </p>
+    <p>Todos los derechos reservados &copy; <span id="anioActual">2026</span> La Rodante Food Truck</p>
+  </footer>
+
+  <!-- ═══════════════════ MODAL PROMOS ═══════════════════ -->
+  <div
+    id="promoModal"
+    class="modal"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="promoTitle"
+    aria-hidden="true"
+    hidden
+  >
+    <div class="modal-contenido" role="document">
+      <button class="closeModal" aria-label="Cerrar promos" data-accion="cerrar-promo">✕</button>
+      <h3 id="promoTitle">Combos</h3>
+      <div id="promoItems" class="grid" aria-label="Items de la promo"></div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════ MODAL CARRITO ═══════════════════ -->
+  <div
+    id="modalCarrito"
+    class="modal"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="carritoTitle"
+    aria-hidden="true"
+    hidden
+  >
+    <div class="modal-contenido" role="document">
+      <button class="closeModal" aria-label="Cerrar carrito" data-accion="cerrar-carrito">✕</button>
+      <h3 id="carritoTitle">Tu Carrito</h3>
+      <ul id="listaCarrito" class="carrito-list" aria-label="Lista de productos en el carrito">
+        <!-- items inyectados por JS -->
+      </ul>
+
+      <!-- Datos de entrega: se muestran cuando hay productos (lo decide JS) y viajan en el mensaje -->
+      <form id="datosEntrega" class="datos-entrega" novalidate hidden>
+        <h4>Datos para tu pedido</h4>
+
+        <label class="campo">
+          <span>Tu nombre</span>
+          <input id="clienteNombre" type="text" autocomplete="name" maxlength="60" placeholder="Ej: Ana">
+        </label>
+
+        <div class="campo">
+          <span id="entregaLabel">¿Cómo lo recibís?</span>
+          <div id="opcionesEntrega" class="opciones-entrega" role="radiogroup" aria-labelledby="entregaLabel">
+            <label class="opcion"><input type="radio" name="entrega" value="retiro"> Paso a retirar</label>
+            <label class="opcion"><input type="radio" name="entrega" value="envio"> Envío a domicilio</label>
+          </div>
+          <small id="entregaAyuda" class="campo-ayuda" hidden></small>
+        </div>
+
+        <label class="campo" id="campoDireccion" hidden>
+          <span>Dirección</span>
+          <input id="clienteDireccion" type="text" autocomplete="street-address" maxlength="120" placeholder="Calle, número y referencias">
+        </label>
+
+        <div class="campo">
+          <span id="pagoLabel">¿Cómo pagás? (opcional)</span>
+          <div class="opciones-entrega" role="radiogroup" aria-labelledby="pagoLabel">
+            <label class="opcion"><input type="radio" name="pago" value="Efectivo"> Efectivo</label>
+            <label class="opcion"><input type="radio" name="pago" value="Cuenta DNI"> Cuenta DNI</label>
+            <label class="opcion"><input type="radio" name="pago" value="Banco Nación"> Banco Nación</label>
+            <label class="opcion"><input type="radio" name="pago" value="Mercado Pago"> Mercado Pago</label>
+          </div>
+        </div>
+
+        <label class="campo">
+          <span>Aclaraciones (opcional)</span>
+          <input id="clienteNota" type="text" autocomplete="off" maxlength="160" placeholder="Ej: tocar timbre, horario">
+        </label>
+      </form>
+
+      <div id="sugerencias" class="sugerencias" role="region" aria-label="Sugerencias"></div>
+
+      <button class="btn-secondary vaciar-carrito" type="button" data-accion="vaciar-carrito">Vaciar carrito</button>
+
+      <!-- Pie fijo del carrito: total y confirmar quedan siempre a la vista -->
+      <div class="carrito-pie">
+        <div class="envio-row" id="envioRow" hidden>
+          <span>Envío a domicilio</span>
+          <span id="envioCosto"></span>
+        </div>
+        <div class="total-row" role="row" aria-label="Total del pedido">
+          <span>Total</span>
+          <span id="totalCarrito" aria-live="polite">$0</span>
+        </div>
+
+        <div class="modal-actions">
+          <button class="boton" type="button" data-accion="confirmar-pedido">Confirmar por WhatsApp</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BARRA FIJA DEL PEDIDO: aparece en celular cuando hay productos en el carrito -->
+  <button class="barra-pedido" id="barraPedido" type="button" data-accion="abrir-carrito" hidden>
+    <span>Ver mi pedido<small id="barraPedidoCant"></small></span>
+    <strong id="barraPedidoTotal"></strong>
+  </button>
+
+  <!-- NOTIFICACIÓN FLOTANTE -->
+  <div id="toast" class="toast" role="status" aria-live="polite" aria-atomic="true"></div>
+
+  <!-- Datos del menú (lo único que se edita para cambiar productos y precios) -->
+  <script src="data/menu.js"></script>
+  <!-- Conexión con el menú en línea (vacía = el sitio usa solo data/menu.js) -->
+  <script src="data/config.js"></script>
+  <!-- Lógica del sitio, en orden de dependencia -->
+  <script src="js/catalogo.js"></script>
+  <script src="js/remoto.js"></script>
+  <script src="js/carrito.js"></script>
+  <script src="js/pedido.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

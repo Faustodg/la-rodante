@@ -1,0 +1,24 @@
+# ============================================================
+# Archivos que NO se suben al repositorio (ni se publican).
+# Siguen existiendo en la carpeta de la computadora.
+# ============================================================
+
+# --- Originales que el sitio ya no usa ---
+# Capturas del catálogo de WhatsApp (traen nombre y precio viejo incrustados)
+# y flyers en tamaño completo. El sitio usa los recortes de IMG/menu/ y las
+# miniaturas de IMG/promos/. También hay copia en la carpeta "la rodante web".
+/IMG/*.jpeg
+# Logo original de 968 KB; el sitio usa logo-128.png y logo-256.png
+/IMG/logo.jpeg.png
+
+# --- Versiones anteriores del sitio (git las reemplaza como respaldo) ---
+/script.js
+/_respaldo-estetica-oscura/
+/propuesta-estetica.html
+
+# --- Archivos del sistema y de herramientas ---
+Thumbs.db
+desktop.ini
+.DS_Store
+.claude/
+*.tmp

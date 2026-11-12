@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <!-- El panel no tiene que aparecer en buscadores -->
+  <meta name="robots" content="noindex,nofollow">
+  <title>Panel del menú – La Rodante Food Truck</title>
+
+  <link rel="icon" href="IMG/favicon.png" type="image/png">
+  <meta name="theme-color" content="#fbf5ea">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@400;500;600;700;800&display=swap">
+
+  <!-- Reutiliza los estilos del sitio y suma los propios del panel -->
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body class="admin">
+
+  <div class="admin-barra">
+    <img src="IMG/logo-128.png" alt="" class="logo" width="44" height="44">
+    <p class="admin-titulo">Panel del menú</p>
+    <a class="btn-secondary admin-barra-btn" href="index.html">Ver el sitio</a>
+    <button class="btn-secondary admin-barra-btn" id="btnSalir" type="button" hidden>Salir</button>
+  </div>
+
+  <main class="admin-main">
+
+    <noscript>
+      <p class="sin-resultados">El panel necesita JavaScript activado en el navegador.</p>
+    </noscript>
+
+    <!-- Aparece si todavía no se cargaron los datos de Supabase en data/config.js -->
+    <section id="vistaConfig" class="admin-tarjeta" hidden>
+      <h1>Falta conectar el panel</h1>
+      <p>Todavía no están cargados los datos del proyecto de Supabase en <code>data/config.js</code>. Mientras tanto, el sitio muestra el menú guardado en <code>data/menu.js</code>.</p>
+    </section>
+
+    <!-- Ingreso -->
+    <section id="vistaLogin" class="admin-tarjeta" hidden>
+      <h1>Ingresar</h1>
+      <form id="formLogin" class="admin-form" novalidate>
+        <label class="campo">
+          <span>Email</span>
+          <input id="loginEmail" type="text" inputmode="email" autocomplete="username" autocapitalize="none" spellcheck="false" required>
+        </label>
+        <label class="campo">
+          <span>Contraseña</span>
+          <input id="loginClave" type="password" autocomplete="current-password" required>
+        </label>
+        <p id="loginError" class="admin-error" role="alert" hidden></p>
+        <button class="boton admin-btn-ancho" id="btnIngresar" type="submit">Ingresar</button>
+      </form>
+    </section>
+
+    <!-- Lista de productos -->
+    <section id="vistaPanel" hidden>
+      <div class="admin-herramientas">
+        <input id="filtroTexto" class="admin-buscador" type="text" placeholder="Buscar producto..." aria-label="Buscar producto" autocomplete="off">
+        <select id="filtroCategoria" class="admin-select" aria-label="Filtrar por categoría"></select>
+        <button class="boton admin-nuevo" id="btnNuevo" type="button">Nuevo producto</button>
+      </div>
+      <p id="estadoLista" class="admin-estado" role="status"></p>
+      <div id="listaProductos" class="admin-lista"></div>
+    </section>
+
+  </main>
+
+  <!-- Editor de un producto -->
+  <div id="editor" class="modal" role="dialog" aria-modal="true" aria-labelledby="editorTitulo" hidden>
+    <div class="modal-contenido">
+      <button class="closeModal" type="button" data-admin="cerrar-editor" aria-label="Cerrar">✕</button>
+      <h3 id="editorTitulo">Producto</h3>
+
+      <form id="formProducto" class="admin-form" novalidate>
+        <label class="campo">
+          <span>Nombre</span>
+          <input id="pNombre" type="text" maxlength="80" autocomplete="off" required>
+        </label>
+
+        <label class="campo">
+          <span>Categoría</span>
+          <select id="pCategoria" class="admin-select"></select>
+        </label>
+
+        <div class="admin-dos">
+          <label class="campo">
+            <span>Precio ($)</span>
+            <input id="pPrecio" type="text" inputmode="numeric" autocomplete="off" required>
+          </label>
+          <label class="campo">
+            <span>Unidad (opcional)</span>
+            <input id="pUnidad" type="text" maxlength="20" placeholder="Ej: ¼ kg" autocomplete="off">
+          </label>
+        </div>
+        <p class="campo-ayuda">Dejá la unidad vacía si se vende por unidad. Si se vende por peso, poné a qué corresponde el precio.</p>
+
+        <label class="campo">
+          <span>Descripción</span>
+          <textarea id="pDescripcion" class="admin-textarea" maxlength="300" rows="3"></textarea>
+        </label>
+
+        <div class="campo">
+          <span>Foto</span>
+          <div class="admin-foto">
+            <img id="pFotoVista" alt="" width="720" height="405">
+            <div>
+              <input id="pFoto" type="file" accept="image/*">
+              <p class="campo-ayuda">Se recorta sola a formato horizontal y se achica para que el sitio cargue rápido.</p>
+            </div>
+          </div>
+        </div>
+
+        <label class="admin-check">
+          <input id="pVisible" type="checkbox" checked>
+          <span>Visible en el sitio</span>
+        </label>
+
+        <label class="campo">
+          <span>Orden dentro de la categoría</span>
+          <input id="pOrden" type="text" inputmode="numeric" autocomplete="off">
+        </label>
+        <p class="campo-ayuda">Los números más chicos aparecen primero.</p>
+
+        <p id="editorError" class="admin-error" role="alert" hidden></p>
+
+        <div class="admin-acciones">
+          <button class="boton" id="btnGuardar" type="submit">Guardar</button>
+          <button class="btn-secondary" type="button" data-admin="cerrar-editor">Cancelar</button>
+        </div>
+        <button class="admin-eliminar" id="btnEliminar" type="button" hidden>Eliminar este producto</button>
+      </form>
+    </div>
+  </div>
+
+  <div id="toast" class="toast" role="status" aria-live="polite" aria-atomic="true"></div>
+
+  <script src="data/menu.js"></script>
+  <script src="data/config.js"></script>
+  <script src="js/catalogo.js"></script>
+  <script src="js/remoto.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>

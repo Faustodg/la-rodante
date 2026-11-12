@@ -1,0 +1,388 @@
+/* ============================================================
+   LA RODANTE — ESTILOS DEL PANEL DE ADMINISTRACIÓN
+   Se carga después de style.css y usa sus variables y botones.
+   ============================================================ */
+
+.admin-barra {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  background: rgba(251, 245, 234, 0.96);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--borde);
+}
+
+.admin-titulo {
+  flex: 1;
+  min-width: 0;
+  font-family: var(--fuente-titulos);
+  font-size: 1.7rem;
+  line-height: 1;
+  text-transform: uppercase;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* En celular el logo se oculta para que entre el título completo */
+.admin-barra .logo {
+  display: none;
+}
+
+.admin-barra-btn {
+  flex: none;
+  min-height: 40px;
+  padding: 0 14px;
+  font-size: 0.85rem;
+}
+
+.admin-barra-btn[hidden],
+.admin-main > section[hidden],
+.admin-error[hidden],
+.admin-eliminar[hidden] {
+  display: none;
+}
+
+.admin-main {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 18px 12px 60px;
+}
+
+/* Tarjeta de ingreso / aviso */
+.admin-tarjeta {
+  max-width: 420px;
+  margin: 24px auto 0;
+  padding: 22px 18px;
+  background: var(--panel);
+  border-radius: 16px;
+  box-shadow: inset 0 0 0 1px var(--borde), var(--sombra-sm);
+}
+
+.admin-tarjeta h1 {
+  margin-bottom: 14px;
+  font-family: var(--fuente-titulos);
+  font-weight: 400;
+  font-size: 2.2rem;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.admin-tarjeta p {
+  font-size: 0.92rem;
+  color: var(--texto-suave);
+}
+
+.admin-tarjeta code {
+  font-size: 0.86em;
+  color: var(--texto);
+}
+
+/* Formularios */
+.admin-form {
+  display: grid;
+  gap: 14px;
+}
+
+.admin-form .campo input[type="password"],
+.admin-select,
+.admin-textarea,
+.admin-buscador {
+  width: 100%;
+  min-height: 46px;
+  padding: 0 12px;
+  border-radius: var(--radio-sm);
+  border: 1px solid var(--borde-fuerte);
+  background: #fff;
+  color: var(--texto);
+  font-family: inherit;
+  font-size: 16px;
+  outline: none;
+  transition: border-color var(--transicion), box-shadow var(--transicion);
+}
+
+.admin-textarea {
+  padding: 10px 12px;
+  line-height: 1.45;
+  resize: vertical;
+}
+
+.admin-form .campo input[type="password"]:focus,
+.admin-select:focus,
+.admin-textarea:focus,
+.admin-buscador:focus {
+  border-color: var(--primario);
+  box-shadow: 0 0 0 3px rgba(213, 36, 28, 0.15);
+}
+
+.admin-form [aria-invalid="true"] {
+  border-color: var(--primario);
+  box-shadow: 0 0 0 3px rgba(213, 36, 28, 0.2);
+}
+
+.admin-dos {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.admin-form .campo-ayuda {
+  margin-top: -8px;
+}
+
+.admin-error {
+  padding: 10px 12px;
+  border-radius: var(--radio-sm);
+  background: var(--primario-suave);
+  color: #8f150f;
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+
+.admin-btn-ancho {
+  width: 100%;
+  min-height: 52px;
+  font-size: 1rem;
+}
+
+.admin-foto {
+  display: grid;
+  grid-template-columns: 136px 1fr;
+  gap: 12px;
+  align-items: start;
+}
+
+.admin-foto img {
+  width: 136px;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: var(--radio-sm);
+  background: #efe7d8;
+}
+
+.admin-foto input[type="file"] {
+  width: 100%;
+  font-size: 0.85rem;
+}
+
+.admin-foto .campo-ayuda {
+  margin-top: 6px;
+}
+
+.admin-check {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 44px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.admin-check input {
+  width: 22px;
+  height: 22px;
+  accent-color: var(--primario);
+}
+
+.admin-acciones {
+  display: flex;
+  gap: 10px;
+}
+
+.admin-acciones .boton {
+  flex: 2;
+  min-height: 52px;
+}
+
+.admin-acciones .btn-secondary {
+  min-height: 52px;
+}
+
+.admin-eliminar {
+  justify-self: center;
+  min-height: 44px;
+  padding: 0 12px;
+  color: #8f150f;
+  font-size: 0.88rem;
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+/* Barra de herramientas de la lista */
+.admin-herramientas {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+}
+
+.admin-nuevo {
+  min-height: 48px;
+}
+
+.admin-estado {
+  margin: 12px 2px;
+  font-size: 0.86rem;
+  color: var(--texto-suave);
+}
+
+/* Lista de productos */
+.admin-lista h2 {
+  margin: 22px 0 10px;
+  font-family: var(--fuente-titulos);
+  font-weight: 400;
+  font-size: 1.9rem;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.admin-fila {
+  display: grid;
+  grid-template-columns: 72px minmax(0, 1fr);
+  grid-template-areas:
+    "foto datos"
+    "ctrl ctrl";
+  gap: 10px 12px;
+  margin-bottom: 10px;
+  padding: 10px;
+  background: var(--panel);
+  border-radius: var(--radio-md);
+  box-shadow: inset 0 0 0 1px var(--borde), var(--sombra-sm);
+}
+
+.admin-fila.oculto {
+  background: #f3ede2;
+}
+
+.admin-fila img {
+  grid-area: foto;
+  width: 72px;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 8px;
+  background: #efe7d8;
+}
+
+.admin-fila .datos {
+  grid-area: datos;
+  min-width: 0;
+}
+
+.admin-fila .datos strong {
+  display: block;
+  font-size: 0.98rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.admin-fila .datos small {
+  font-size: 0.8rem;
+  color: var(--texto-suave);
+}
+
+.admin-etiqueta {
+  display: inline-block;
+  margin-left: 6px;
+  padding: 1px 8px;
+  border-radius: 99px;
+  background: #55504b;
+  color: #fff;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  vertical-align: 1px;
+}
+
+.admin-fila .ctrl {
+  grid-area: ctrl;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.admin-precio {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  height: 46px;
+  padding-left: 12px;
+  border-radius: var(--radio-sm);
+  border: 1px solid var(--borde-fuerte);
+  background: #fff;
+  font-weight: 700;
+}
+
+.admin-precio:focus-within {
+  border-color: var(--primario);
+  box-shadow: 0 0 0 3px rgba(213, 36, 28, 0.15);
+}
+
+.admin-precio input {
+  flex: 1;
+  min-width: 0;
+  height: 100%;
+  padding: 0 10px 0 4px;
+  border: 0;
+  background: transparent;
+  color: var(--texto);
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 700;
+  outline: none;
+}
+
+.admin-fila .ctrl .boton,
+.admin-fila .ctrl .btn-secondary {
+  flex: none;
+  min-height: 46px;
+  padding: 0 14px;
+  font-size: 0.88rem;
+}
+
+.admin-fila .ctrl .boton:disabled {
+  background: #d9d0c2;
+  color: #fff;
+  cursor: default;
+}
+
+@media (min-width: 641px) {
+  .admin-barra {
+    padding: 10px 24px;
+  }
+
+  .admin-barra .logo {
+    display: block;
+  }
+
+  .admin-main {
+    padding: 24px 24px 60px;
+  }
+
+  .admin-herramientas {
+    grid-template-columns: 1fr 200px auto;
+  }
+
+  .admin-fila {
+    grid-template-columns: 96px minmax(0, 1fr) auto;
+    grid-template-areas: "foto datos ctrl";
+    align-items: center;
+  }
+
+  .admin-fila img {
+    width: 96px;
+  }
+
+  .admin-precio {
+    flex: 0 0 150px;
+  }
+}
