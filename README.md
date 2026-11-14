@@ -38,13 +38,4 @@ python -m http.server 8765
 
 Y abrir `http://127.0.0.1:8765/` en el navegador.
 
-## Pendiente antes de publicar
-
-- Reemplazar `TU-DOMINIO` en el `<head>` de `index.html` por la dirección real del sitio (lo necesita la vista previa al compartir el enlace).
-- Cargar en `data/config.js` la dirección y la clave pública del proyecto de Supabase.
-- Definir los combos reales (hoy están marcados como pendientes en `data/menu.js`).
-
-## Seguridad
-
-- En `data/config.js` va solo la clave **pública** de Supabase. La clave secreta no se guarda en ningún archivo de este repositorio.
-- Quién puede modificar el menú lo decide la base de datos, no el código del sitio (ver `supabase/esquema.sql`).
+  
